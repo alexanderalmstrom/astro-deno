@@ -15,11 +15,10 @@ jobs:
       contents: read # Needed to clone the repository
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      # - uses: denoland/setup-deno@v2
-      #   with:
-      #     deno-version: v2.x
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
 
       # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
       - name: Install dependencies
