@@ -37,5 +37,3 @@ deno run preview
 ```
 deno task
 ```
-
-bump
