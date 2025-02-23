@@ -1,0 +1,39 @@
+# @see https://docs.astro.build/en/guides/deploy/deno/
+
+name: Deploy
+on: [push]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
+      - name: Install dependencies
+        run: deno install --allow-scripts
+
+      - name: Check linting
+        run: deno lint
+
+      - name: Check formatting
+        run: deno fmt --check
+
+      # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
+      - name: Build Astro
+        run: deno run build
+
+      - name: Upload to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: my-deno-project # TODO: replace with Deno Deploy project name
+          entrypoint: jsr:@std/http/file-server # Serve as static. Replace with server/entry.mjs if you want SSR
+          root: dist
