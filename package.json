@@ -8,8 +8,9 @@
     "preview": "astro preview",
     "preview:ssr": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
     "astro": "astro",
-    "deno-deploy:static": "deno run build && cd dist/client && deployctl deploy --project=exciting-emu-58 jsr:@std/http/file-server",
-    "deno-deploy:ssr": "deno run build && deployctl deploy --project=exciting-emu-58 --no-static --include=./dist ./dist/server/entry.mjs"
+    "deploy": "deno run build && deployctl deploy --project=exciting-emu-58 --prod",
+    "deploy-preview:static": "deno run build && cd dist/client && deployctl deploy --project=exciting-emu-58 jsr:@std/http/file-server",
+    "deploy-preview:ssr": "deno run build && deployctl deploy --project=exciting-emu-58 --no-static --include=./dist ./dist/server/entry.mjs"
   },
   "dependencies": {
     "@deno/astro-adapter": "^0.2.0",
