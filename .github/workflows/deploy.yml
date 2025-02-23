@@ -34,6 +34,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: deno-astro
+          project: exciting-emu-58
           entrypoint: jsr:@std/http/file-server # Serve as static. Replace with server/entry.mjs if you want SSR
           root: dist
