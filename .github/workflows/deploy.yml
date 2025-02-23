@@ -35,5 +35,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: exciting-emu-58
-          entrypoint: jsr:@std/http/file-server # Serve as static. Replace with server/entry.mjs if you want SSR
+          entrypoint: server/entry.mjs # SSR
+          # entrypoint: jsr:@std/http/file-server # Static
           root: dist
