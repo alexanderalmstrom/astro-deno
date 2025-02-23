@@ -1,5 +1,13 @@
 # Deno Astro
 
+This project is built using these docs and guides:
+
+https://docs.astro.build/en/guides/deploy/deno/
+
+## Requirements
+
+- [Deno](https://deno.com/)
+
 ### Install dependencies
 ```
 deno install --allow-scripts
