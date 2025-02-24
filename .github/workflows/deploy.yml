@@ -40,6 +40,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: d-astro
-          # entrypoint: server/entry.mjs # SSR
-          entrypoint: jsr:@std/http/file-server # Static
+          entrypoint: server/entry.mjs # SSR
+          # entrypoint: jsr:@std/http/file-server # Static
           root: dist
