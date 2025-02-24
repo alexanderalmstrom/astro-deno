@@ -1,7 +1,10 @@
 # https://docs.astro.build/en/guides/deploy/deno/
 
 name: Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -36,6 +39,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: exciting-emu-58
-          entrypoint: dist/server/entry.mjs # SSR
+          entrypoint: server/entry.mjs # SSR
           # entrypoint: jsr:@std/http/file-server # Static
-          root: .
+          root: dist
