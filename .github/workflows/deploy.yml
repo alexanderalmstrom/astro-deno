@@ -1,10 +1,7 @@
-# @see https://docs.astro.build/en/guides/deploy/deno/
+# https://docs.astro.build/en/guides/deploy/deno/
 
 name: Deploy
 on: [push]
-
-env:
-  DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
 
 jobs:
   deploy:
