@@ -15,12 +15,14 @@ jobs:
       contents: read # Needed to clone the repository
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
       - name: Install dependencies
         run: deno install --allow-scripts
 
@@ -30,7 +32,6 @@ jobs:
       - name: Check formatting
         run: deno fmt --check
 
-      # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
       - name: Build Astro
         run: deno run build
 
