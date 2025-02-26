@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import kv from "../../../lib/kv.ts";
 
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async ({ params }) => {
   const id = params.id;
 
   if (!id) {
