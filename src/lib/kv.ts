@@ -7,7 +7,7 @@ if (!Deno.env.get("DENO_KV_ACCESS_TOKEN")) {
   );
 }
 
-const kv = await Deno.openKv(
+const kv = import.meta.env.PROD ? await Deno.openKv() : await Deno.openKv(
   `https://api.deno.com/databases/${KV_UUID}/connect`,
 );
 
