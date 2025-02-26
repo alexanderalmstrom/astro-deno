@@ -1,6 +1,6 @@
 {
   "deploy": {
-    "project": "d-astro",
+    "project": "a-deno",
     "exclude": ["**/node_modules"],
     "include": [],
     "entrypoint": "dist/server/entry.mjs"
