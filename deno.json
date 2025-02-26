@@ -5,5 +5,12 @@
     "include": [],
     "entrypoint": "dist/server/entry.mjs"
   },
-  "unstable": ["kv"]
+  "unstable": ["kv"],
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-unused-vars"
+      ]
+    }
+  }
 }
