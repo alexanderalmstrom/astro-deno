@@ -20,6 +20,7 @@ export default defineConfig({
       KV_ACCESS_TOKEN: envField.string({
         context: "server",
         access: "secret",
+        optional: true,
       }),
     },
   },
