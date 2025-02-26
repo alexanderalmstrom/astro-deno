@@ -17,7 +17,7 @@ export default defineConfig({
         context: "server",
         access: "secret",
       }),
-      DENO_KV_ACCESS_TOKEN: envField.string({
+      KV_ACCESS_TOKEN: envField.string({
         context: "server",
         access: "secret",
       }),
