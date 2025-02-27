@@ -16,6 +16,7 @@ export default defineConfig({
       KV_UUID: envField.string({
         context: "server",
         access: "secret",
+        optional: true,
       }),
       KV_ACCESS_TOKEN: envField.string({
         context: "server",
