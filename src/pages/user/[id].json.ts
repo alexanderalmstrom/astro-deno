@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import kv from "../../../lib/kv.ts";
+import kv from "../../lib/kv.ts";
 
 export const GET: APIRoute = async ({ params, request }) => {
   const id = params.id;
@@ -15,25 +15,12 @@ export const GET: APIRoute = async ({ params, request }) => {
     );
   }
 
-  // const user = await kv.get(["users", id]);
+  const user = await kv.get(["users", id]);
 
-  // if (user.value) {
-  //   return new Response(
-  //     JSON.stringify({
-  //       error: "User already exists",
-  //     }),
-  //     {
-  //       status: 400,
-  //     },
-  //   );
-  // }
-
-  const newUser = await kv.set(["users", id], id);
-
-  if (!newUser.versionstamp) {
+  if (!user.value) {
     return new Response(
       JSON.stringify({
-        error: "User could not be created",
+        error: "User not found",
       }),
       {
         status: 404,
@@ -42,7 +29,7 @@ export const GET: APIRoute = async ({ params, request }) => {
   }
 
   return new Response(
-    JSON.stringify(newUser),
+    JSON.stringify(user),
     {
       status: 200,
       headers: {

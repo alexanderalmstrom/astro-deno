@@ -17,10 +17,23 @@ export const GET: APIRoute = async ({ params, request }) => {
 
   const user = await kv.get(["users", id]);
 
-  if (!user.value) {
+  if (user.value) {
     return new Response(
       JSON.stringify({
-        error: "User not found",
+        error: "User already exists",
+      }),
+      {
+        status: 400,
+      },
+    );
+  }
+
+  const newUser = await kv.set(["users", id], id);
+
+  if (!newUser.versionstamp) {
+    return new Response(
+      JSON.stringify({
+        error: "User could not be created",
       }),
       {
         status: 404,
@@ -29,7 +42,10 @@ export const GET: APIRoute = async ({ params, request }) => {
   }
 
   return new Response(
-    JSON.stringify(user),
+    JSON.stringify({
+      message: "User created",
+      user: newUser,
+    }),
     {
       status: 200,
       headers: {
