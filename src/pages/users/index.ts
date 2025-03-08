@@ -1,12 +1,6 @@
 import type { APIRoute } from "astro";
 import kv from "../../lib/kv.ts";
 
-type KeyValue = {
-  key: string;
-  value: unknown;
-  versionstamp: string;
-};
-
 export const GET: APIRoute = async ({ params, request }) => {
   const users = await kv.list({
     prefix: ["users"],
