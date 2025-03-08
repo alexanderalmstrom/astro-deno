@@ -1,5 +1,5 @@
 {
-  "name": "deno-astro",
+  "name": "astro-deno",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
