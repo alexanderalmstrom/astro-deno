@@ -1,6 +1,6 @@
-# Deno Astro
+# Astro with Deno
 
-This project is built using these docs and guides:
+This project is built as a proof of concept from these docs and guides:
 
 https://docs.astro.build/en/guides/deploy/deno/
 
